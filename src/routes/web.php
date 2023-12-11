@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ShopController;
+use App\Http\Controllers\MenuController;
+use App\Http\Controllers\ThanksController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +16,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::post('/thanks', [ThanksController::class, 'index']);
+Route::post('/menu', [MenuController::class, 'index']);
+
+Route::middleware('auth')->group(function () {
+    Route::get('/', [ShopController::class, 'index']);
 });
