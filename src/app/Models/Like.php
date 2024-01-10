@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Reservation extends Model
+class Like extends Model
 {
     use HasFactory;
 
@@ -13,9 +13,6 @@ class Reservation extends Model
         'id',
         'user_id',
         'shop_id',
-        'reservation_date',
-        'reservation_time',
-        'reservation_number',
         ];
 
     public function user(){

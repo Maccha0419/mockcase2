@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\ThanksController;
+use App\Http\Controllers\ReservationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,9 +17,12 @@ use App\Http\Controllers\ThanksController;
 |
 */
 
-Route::post('/thanks', [ThanksController::class, 'index']);
 Route::post('/menu', [MenuController::class, 'index']);
 
 Route::middleware('auth')->group(function () {
+    Route::post('/thanks', [ThanksController::class, 'index']);
     Route::get('/', [ShopController::class, 'index']);
+    Route::post('/detail/{id}', [ShopController::class, 'detail']);
+    Route::get('/research', [ShopController::class, 'search']);
+    Route::post('/reservation/complete', [ReservationController::class, 'reservation']);
 });
