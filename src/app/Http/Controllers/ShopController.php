@@ -17,7 +17,7 @@ class ShopController extends Controller
 
     public function detail($id)
     {
-        $shops = Shop::where('id', $id)->with('shoparea','shopgenre')->first();
+        $shops = Shop::where('id', $id)->first();
         return view('detail', compact('shops'));
     }
 

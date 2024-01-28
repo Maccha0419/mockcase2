@@ -54,13 +54,16 @@
                     <input name="id" type="hidden" value="{{ $shop->id }}">
                     <button class="card">詳しく見る</button>
                 </form>
+
+                <example-component>a</example-component>
+
+
                 <form class="card__button" action="/bookmark" method="post">
                     @csrf
                     <input name="shop_id" type="hidden" value="{{ $shop->id }}">
                     <button class="card">お気に入り</button>
                 </form>
             </div>
-
             @endforeach
         </div>
     </div>
